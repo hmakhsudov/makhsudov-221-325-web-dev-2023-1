@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+   <div class="register__content">
+
+    <div class="container">
+        <div class="register__title">
+            Войти
+        </div>
+        
+        <form action="" class="register__form" method="post">
+            {% csrf_token %}
+            <div class="register__username label">Введите логин</div>
+            <input type="text" class="register__username-input" placeholder="" name="username">
+            <div class="register__password label">Введите пароль</div>
+            <input type="password" class="register__password-input" name="password">
+            <input type="submit" value="Войти">
+        </form>
+        <div class="change_page">
+            <a href="{% url 'register' %}">Нет аккаунта? Зарегистрироваться</a>
+        </div>
+    </div>
+   </div>
+
+{% endblock %}

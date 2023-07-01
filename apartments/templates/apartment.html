@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="apartment__page">
+<div class="container">
+    <div class="apartment__navigation">
+        <ul>
+            <li><button class="scroll-to-div" data-target=".apartment__gallery">Галерея</button></li>
+            <li><button class="scroll-to-div" data-target=".apartment__about">О квартире</button></li>
+            <li><button class="scroll-to-div" data-target=".apartment__desc">Описание</button></li>
+            <li><button class="scroll-to-div" data-target=".apartment__features">Характеристики</button></li>
+        </ul>
+    </div>
+
+    <div class="apartment__content">
+        <div class="apartment__gallery">
+            {% for image in apartment.images.all %}
+            <div class="gallery-item"><img src="{{ image.image.url }}" width="650px" height="340px" alt=""></div>
+            {% endfor %}
+        </div>
+
+        <div class="apartment__about">
+            <div class="apartment__left">
+                <div class="apartment__type">{{ apartment.type }}, {{ apartment.area }} м, {{ apartment.floor }} этаж</div>
+                <div class="apartment__location">{{ apartment.location }}</div>
+                <div class="apartment__station">Метро {{ apartment.station }}</div>
+                {% if apartment.id in apartments %}
+                <a href="{% url 'delete_from_favorites' id=apartment.id %}?next={% url 'apartment' id=apartment.id %}" class="content__cart-add_to_favorites"><img src="{% static 'img/favorites.png' %}" class="favorites_icon_red" alt="yes" width="30px", height="30px"></a>
+            {% else %}
+                <a href="{% url 'add_to_favorites' id=apartment.id %}?next={% url 'apartment' id=apartment.id %}" class="content__cart-add_to_favorites"><img src="{% static 'img/favorites.png' %}" class="favorites_icon" alt="no"></a>
+            {% endif %}
+               
+            </div>
+            <div class="apartment__right">
+                <div class="apartment__price">{{ apartment.price }} ₽</div>
+                <div class="apartment__price-for-square">{{ price_for_square }} ₽/м</div>
+            </div>
+        </div>
+        <div class="apartment__desc">
+            <div class="apartment__desc-title">
+                Описание
+            </div>
+            <div class="apartment__desc-text">
+                            Продается светлая, уютная 1 комнатная квартира.
+            В квартире установлены пластиковые окна. 
+            Лоджия застекленная. 
+            Сделан косметический ремонт. 
+            Сан. узел совмещен.
+            1 взрослый собственник. 
+            Развитая инфраструктура. Сетевые магазины,, детские сады, школы, стоматология, салон красоты, кафе быстрого питания, ресторан все в шаговой доступности.
+            Автобусная остановка рядом с домом. 
+            До метро 3 минуты на общественном транспорте или 15 минут пешком..
+            Соседи тихие, спокойные. 
+            Подходит под ипотеку.
+            Отличный вариант как для проживания, так и для сдачи.
+            </div>
+        </div>
+        <div class="apartment__features">
+            <div class="apartment__features-title">
+                Характеристики
+            </div>
+            <div class="apartment__features-text">
+                <div class="apartment__features-text-title">Основное</div>
+                <div class="apartment__features-uls">
+                    <ul class="features-keys">
+                        <li>Код объекта</li>
+                        <li>Общая площадь</li>
+                        <li>Ремонт</li>
+                        <li>Год постройки</li>
+                        <li>Этаж/Этажность</li>
+                        <li>Комнатность</li>
+                    </ul>
+                    <ul class="features-values">
+                        <li>342365</li>
+                        <li>35.2 м</li>
+                        <li>Роскошный ремонт</li>
+                        <li>2023</li>
+                        <li>12/35</li>
+                        <li>Комнатность</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="apartment__buy">
+            {% if apartment.id in purchases %}
+            <a href="" class="apartment__buy-button">Куплено</a>
+        {% else %}
+            <a href="{% url 'add_to_purchases' id=apartment.id %}" class="apartment__buy-button">Купить эту недвижимость</a>
+        {% endif %}
+        
+        
+        </div>
+
+    </div>
+</div>
+</div>
+{% endblock %}

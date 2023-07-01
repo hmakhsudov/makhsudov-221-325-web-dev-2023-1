@@ -1,0 +1,500 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Medium.ttf') format('truetype'),
+         url('../fonts/Roboto-Italic.ttf') format('truetype'),
+         url('../fonts/Roboto-Light.ttf') format('truetype'),
+         url('../fonts/Roboto-Bold.ttf') format('truetype'),
+         url('../fonts/Roboto-Regular.ttf') format('truetype');
+  }
+html{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #333333;
+}
+
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: #333;
+}
+
+.container{
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.header{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.header__logo{
+    position: absolute;
+    font-size: 30px;
+    color: #A92225;
+    left: 0px;
+}
+
+.header__city{
+    position: absolute;
+    left: 170px;
+    font-size: 20px;
+}
+
+.header__enter{
+    position: absolute;
+    background-color: #F15044;
+    padding: 8px 13px;
+    font-size: 20px;
+    color: #fff;
+    right: 0px;
+}
+.header__favorites{
+    position: absolute;
+    right: 120px;
+}
+.header__purchases{
+    position: absolute;
+    right: 180px;
+}
+
+.nav__list{
+    display: flex;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.nav__list li{
+    display: inline-block;
+    margin-right: 50px;
+}
+nav{
+    background-color: #333;
+    color: #Fff;
+    margin-bottom: 0px;
+}
+.nav__list a{
+    color: #fff;
+}
+
+.content__top{
+    display: flex;
+}
+.content__title{
+    font-size: 24px;
+    font-weight: 500px;
+    margin-right: 40px;
+}
+
+.content__cart-title{
+    display: flex;
+}
+
+.content__carts{
+    display: flex;
+    margin-top: 20px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: #F8F9F9;
+}
+
+.content__carts a{
+    display: block;
+}
+
+.content__cart{
+    flex-basis: calc(33.33% - 20px);
+    min-width: 300px;
+    max-width: 300px;
+    margin-bottom: 50px;
+    background-color: #fff;
+
+}
+
+.content__cart-image{
+    margin-bottom: 15px;
+}
+.content__cart-image img{
+    width: 100%;
+}
+
+.content__cart-body{
+    margin-left: 15px;
+}
+
+.content__cart-name{
+    color: #848484;
+    margin-right: 90px;
+    width: 150px;
+}
+
+.content__cart-price{
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    margin-top: 10px;
+}
+
+.content__cart-features{
+    display: flex;
+    margin-bottom: 10px;
+
+}
+
+.feature{
+    margin-right: 7px;
+    font-weight: 500;
+}
+.content__cart-type_of_apartment {
+    color: #2A72EE;
+}
+.content__cart-location{
+    margin-bottom: 50px;
+    height: 70px;
+}
+
+.content__cart-buy{
+    width: 250px;
+    text-align: center;
+    border: 1px solid #d6dadc;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    transition: 0.3s;
+}
+.content__cart-buy a{
+    color: #333;
+}
+
+.content__cart-buy:hover{
+    color: #fff;
+    background-color: #F15044;
+
+}
+.content__cart-buy:hover a{
+    color: #Fff;
+}
+
+
+.content__title-select{
+    border: none;
+    font-size: 20px;
+
+}
+
+.header__enter a{
+    color: #fff;
+    font-size: 14px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+/* Styles for modals */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 20% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px;
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  /* Styles for buttons */
+
+
+  
+  /* Additional styles for forms */
+  form {
+    margin-top: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+  
+
+
+.register__form{
+    width: 500px;
+}
+
+.register__title{
+    font-weight: 700;
+    font-size: 25px;
+}
+
+.label{
+    margin-bottom: 10px;
+}
+
+input[type="text"]{
+    margin-bottom: 20px;
+    outline: none;
+    color: #333;
+}
+
+input[type="submit"]{
+    background-color: #F15044;
+    padding: 12px 26px;
+    font-size: 20px;
+    color: #fff;
+    border: none;
+    margin-bottom: 15px;
+}
+
+.change_page a{
+    color: #2A72EE;
+    font-size: 16px;
+}
+
+.content__cart-image-image{
+    width: 300px;
+
+}
+
+.content__cart-image-image img{
+    width: 300px;
+    
+}
+
+.favorites_icon{
+    filter: grayscale(100%);
+    transition: filter 0.3s;
+    width: 30px;
+    height: 30px;
+}
+
+
+.content__cart-add_to_favorites:hover .favorites_icon {
+    filter: none;
+}
+
+
+
+/* APARTMENT STYLES */
+/* APARTMENT STYLES */
+/* APARTMENT STYLES */
+/* APARTMENT STYLES */
+/* APARTMENT STYLES */
+
+
+
+.apartment__navigation {
+    padding-top: 10px;
+    margin-top: -8px;
+    margin-bottom: 30px;
+}
+.apartment__navigation ul{
+    display: flex;
+}
+
+
+.apartment__navigation li{
+    position: inline-block;
+    margin-right: 30px;
+}
+.apartment__navigation button{
+    font-size: 13px;
+    color: #848484;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.apartment__page{
+    background-color: #F8F9F9;
+}
+
+.apartment__content{
+}
+
+.scroll-to-div{
+    transition: 0.5s;
+}
+.scroll-to-div:hover{
+    color: #333;
+    font-weight: 700;
+}
+.gallery-item{
+    max-width: 700px;
+}
+
+
+.apartment__gallery{
+    margin-bottom: 30px;
+    max-width: 700px;
+}
+
+.apartment__left span{
+    margin-left: 8px;
+}
+
+
+.apartment__about{
+    background-color: #fff;
+    padding-top: 25px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.apartment__type{
+    font-size: 30px;
+    margin-bottom: 14px;
+    font-weight: 500;
+
+}
+
+.apartment__location{
+    font-size: 17px;
+    margin-bottom: 30px;
+}
+
+.apartment__station{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.apartment__addToFavorites a{
+    margin-top: 20px;
+    width: 140px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border: 1px solid #848484;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    
+}
+
+.apartment__addToFavorites img.grey {
+    filter: grayscale(100%);
+}
+
+.apartment__price{
+    font-size: 30px;
+}
+.apartment__price-for-square{
+    font-size: 20px;
+    color: #848484;
+    font-weight: 300;
+}
+
+.apartment__desc{
+    background-color: #fff;
+    padding-top: 25px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+}
+
+.apartment__desc-title{
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+.apartment__desc-text{
+    font-weight: 300;
+    width: 800px;
+    font-size: 14px;
+    line-height: 25px;
+}
+
+.apartment__features{
+    background-color: #fff;
+    padding-top: 25px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+}
+.apartment__features-title{
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+.apartment__features-text-title{
+    font-size: 23px;
+    margin-bottom: 10px;
+}
+
+.apartment__features-uls{
+    display: flex;
+
+}
+
+.features-keys{
+    margin-left: -40px;
+    margin-right: 120px;
+}
+.features-keys li{
+    margin-bottom: 20px;
+    font-size: 17px;
+}
+
+.features-values li{
+    margin-bottom: 20px;
+    font-size: 17px;
+}
+
+.apartment__buy{
+    background-color: #fff;
+    padding-top: 40px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 40px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.apartment__buy-button{
+    padding: 12px 24px;
+    font-size: 20px;
+    background-color: #F15044;
+    color: #fff;
+}

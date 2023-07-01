@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}{% if message.tags == 'success' %} success-message{% endif %}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+        <div class="content">
+            <div class="container">
+                <div class="content__top">
+                    <div class="content__title">Купленные недвижимости</div>
+
+                </div>
+                
+            </div>
+        <div class="container">
+            <div class="content__carts">
+                {% if apartments %}
+                {% for apartment in apartments %}
+                <div class="content__cart">
+                    <a href="{% url 'apartment' id=apartment.id %}">
+                    <div class="content__cart-image">
+                        {% for image in apartment.images.all %}
+                        <div class="content__cart-image-image"><img src="{{ image.image.url }}" width="300px" height="190px" alt=""></div>
+                        {% endfor %}
+                    </div>
+                    <div class="content__cart-body">
+                        <div class="content__cart-title">
+                            <div class="content__cart-name">{{ apartment.name }}</div>
+                            <div class="content__cart-favorite">
+                                <div class="content__cart-favorite">
+                                    {% if apartment.id in user_favorites %}
+                                        <a href="{% url 'delete_from_favorites' id=apartment.id %}?next={% url 'index' %}" class="content__cart-add_to_favorites"><img src="{% static 'img/favorites.png' %}" class="favorites_icon_red" alt="yes" width="30px", height="30px"></a>
+                                    {% else %}
+                                        <a href="{% url 'add_to_favorites' id=apartment.id %}?next={% url 'index' %}" class="content__cart-add_to_favorites"><img src="{% static 'img/favorites.png' %}" class="favorites_icon" alt="no"></a>
+                                    {% endif %}
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="content__cart-price">
+                            {{ apartment.price }} ₽
+                        </div>
+                        <div class="content__cart-features">
+                            <div class="content__cart-type_of_apartment feature">{{ apartment.type }}</div>
+                            <div class="content__cart-area_of_apartment feature">{{ apartment.area }}</div>
+                            <div class="content__cart-floor_of_apartment feature">{{ apartment.floor }}</div>
+                        </div>
+                        <div class="content__cart-location">{{ apartment.location }}</div>
+                        <div class="content__cart-buy">
+                            <a href="{% url 'apartment' id=apartment.id %}" class="content__cart-button">Купить</a>
+                        </div>
+                    </a>
+                    </div>
+                </div>
+                {% endfor %}
+                {% else %}
+                <h1>Пока что нет покупок</h1>
+                {% endif %}
+                </div>
+            </div>
+            </div>
+
+{% endblock %}

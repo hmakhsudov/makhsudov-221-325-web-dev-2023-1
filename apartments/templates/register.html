@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+   <div class="register__content">
+
+        <div class="container">
+            <div class="register__title">
+                Регистрация
+            </div>
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            <form action="" class="register__form" method="POST">
+                {% csrf_token %}
+                <div class="register__username label">Введите логин</div>
+                {{ form.username }}
+                <div class="register__name label" >Введите ваше имя</div>
+                {{ form.first_name }}
+                <div class="register__password label">Введите пароль</div>
+                {{ form.password1 }}
+                <div class="register__password label">Повторите введеный пароль</div>
+                {{ form.password2 }}
+                <input type="submit" value="Регистрация">
+                {{ form.errors }}
+            </form>
+            <div class="change_page">
+                <a href="{% url 'login' %}">Уже есть аккаунт? Войти</a>
+            </div>
+        </div>
+
+   </div>
+
+{% endblock %}

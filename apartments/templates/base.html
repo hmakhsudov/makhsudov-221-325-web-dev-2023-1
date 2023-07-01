@@ -1,0 +1,48 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreeLife</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'slick/slick.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'slick/slick-theme.css' %}"/>
+    
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header__logo">FreeLife</div>
+            <div class="header__city">Москва</div>
+            <div class="header__favorites"><a href="{% url 'favorites' %}"><img src="{% static 'img/favorites.png' %}" width="36px" height="36px" alt=""></a></div>
+            <div class="header__purchases"><a href="{% url 'purchases' %}"><img src="{% static 'img/cart.png' %}" width="36px" height="36px" alt=""></a></div>
+            {% if user.is_authenticated %}
+            <div class="header__enter"><a href="{% url 'logout' %}">Выйти</a></div>
+            {% else %}
+            <div class="header__enter"><a href="{% url 'register' %}">Войти</a></div>
+            {% endif %}
+        </header>
+    </div>
+        <nav class="nav">
+            <div class="container">
+            <ul class="nav__list">
+                <li><a href="{% url 'index' %}">Все квартиры</a></li>
+                <li><a href="{% url 'new_buildings' %}">Новостройки</a></li>
+                <li><a href="{% url 'houses' %}">Дома и новостройки</a></li>
+                <li><a href="{% url 'garages' %}">Гаражи</a></li>
+            </ul>
+            </div>
+        </nav>
+
+        {% block content %}
+        {% endblock %}
+
+        <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script type="text/javascript" src="{% static 'slick/slick.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+        
+</body>
+</html>
