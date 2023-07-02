@@ -19,7 +19,7 @@ def index(request):
         'user_favorites': user_favorites,
     }
 
-    return render(request, './index.html', context)
+    return render(request, 'index.html', context)
 
 
 def new_buildings(request):
@@ -35,7 +35,7 @@ def new_buildings(request):
         'user_favorites': user_favorites,
     }
 
-    return render(request, './new_buildings.html', context)
+    return render(request, 'new_buildings.html', context)
 
 
 @login_required(login_url='login')
@@ -81,7 +81,7 @@ def garages(request):
         'images': images_list,
         'user_favorites': user_favorites,
     }
-    return render(request, './garages.html', context)
+    return render(request, 'garages.html', context)
 
 def houses(request):
     apartments = Apartment.objects.filter(category='Houses')
@@ -97,7 +97,7 @@ def houses(request):
         'user_favorites': user_favorites,
     }
     
-    return render(request, './houses.html', context)
+    return render(request, 'houses.html', context)
 
 def apartment(request, id):
     apartment = get_object_or_404(Apartment, id=id)
@@ -116,10 +116,10 @@ def apartment(request, id):
         'purchases': purchases,
         'price_for_square': formatted_price_for_square,
     }
-    return render(request, './apartment.html', context)
+    return render(request, 'apartment.html', context)
 
 def apartment_test(request):
-    return render(request, './apartment.html')
+    return render(request, 'apartment.html')
 
 @login_required(login_url='login')
 def add_to_favorites(request, id):

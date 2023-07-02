@@ -17,7 +17,7 @@ def register(request):
             return redirect('index')  # Replace 'home' with the desired URL after registration
     else:
         form = CustomUserCreationForm()
-    return render(request, './register.html', {'form': form})
+    return render(request, 'register.html', {'form': form})
 
 def login_view(request):
     if request.method == 'POST':
@@ -37,7 +37,7 @@ def login_view(request):
             error_message = 'Неправильно введен логин или пароль'
             return render(request, './login.html', {'error_message': error_message})
     
-    return render(request, './login.html')
+    return render(request, 'login.html')
 
 def logout_view(request):
     logout(request)

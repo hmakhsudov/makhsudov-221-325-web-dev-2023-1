@@ -12,7 +12,7 @@ from django.core.files import File
 apartments = Apartment.objects.all()
 
 apartment_list = list(apartments)
-image_folder_path = 'D:/pythonprojects/money/artem_kursovaya/images/'
+image_folder_path = 'D:/pythonprojects/money/artem_kursovaya/apartments/apartments/images/'
 
 # Create a list of complete image paths by joining the folder path with the file names
 image_file_names = os.listdir(image_folder_path)

@@ -15,4 +15,4 @@ urlpatterns = [
     path('add_to_purchases/<int:id>/', add_to_purchases, name='add_to_purchases'),
     path('delete_from_favorites/<int:id>/', delete_from_favorites, name='delete_from_favorites'),
     path('apartment_test/', apartment_test, name='apartment_test')
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
