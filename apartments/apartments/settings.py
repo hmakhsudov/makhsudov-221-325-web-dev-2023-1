@@ -58,7 +58,8 @@ ROOT_URLCONF = 'apartments.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates',],
+        'DIRS': ['templates',
+                 '/home/std/makhsudov-221-325-web-dev-2023-1/apartments/templates/',],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
